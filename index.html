@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed of Yggdrasil — Character Generator</title>
+    <meta name="description" content="Draw a random hero from the roots of the World Tree. A procedural Norse-inspired RPG character generator.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B3%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="roots" aria-hidden="true">
+        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+            <path d="M600 -20 C 560 120, 640 160, 560 260 C 500 330, 380 320, 300 420 C 220 510, 240 620, 120 700"
+                  fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M600 -20 C 640 120, 560 160, 640 260 C 700 330, 820 320, 900 420 C 980 510, 960 620, 1080 700"
+                  fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M600 -20 C 600 160, 600 200, 600 340 C 600 460, 540 520, 560 640 C 575 720, 520 760, 500 820"
+                  fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M600 -20 C 600 160, 600 200, 600 340 C 600 460, 660 520, 640 640 C 625 720, 680 760, 700 820"
+                  fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+    </div>
+
+    <main class="page">
+        <header class="hero">
+            <h1>Seed of Yggdrasil</h1>
+            <p class="tagline">Draw a hero from the roots of the World Tree.</p>
+        </header>
+
+        <section class="card">
+            <form class="summon-form" id="summonForm" novalidate>
+                <label for="characterName">Name your character</label>
+                <input
+                    type="text"
+                    id="characterName"
+                    name="characterName"
+                    placeholder="e.g. Ragnar"
+                    autocomplete="off">
+                <button type="submit" id="generateBtn">Reveal your character</button>
+            </form>
+
+            <div class="result" id="result" hidden>
+
+                <div class="result-header">
+                    <h2 id="charName"></h2>
+                    <p id="charMeta"></p>
+                </div>
+
+                <dl class="ledger">
+                    <div class="ledger-row">
+                        <dt>Weapon</dt>
+                        <dd id="charWeapon"></dd>
+                    </div>
+                    <div class="ledger-row">
+                        <dt>Signature skill</dt>
+                        <dd id="charSkill"></dd>
+                    </div>
+                </dl>
+
+                <div class="attributes" id="attributes"></div>
+
+                <div class="saga">
+                    <p id="charStory"></p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="credit">
+            <p>Crafted by Franco Lescano<br>Source code on <a href="https://github.com/LescanoFranco123" target="_blank" rel="noopener">GitHub</a></p>
+        </footer>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/generator.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

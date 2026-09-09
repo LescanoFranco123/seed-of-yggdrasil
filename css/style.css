@@ -1,0 +1,332 @@
+/* Seed of Yggdrasil — design tokens
+   A quiet, dusk-lit study built around one memorable idea: the World Tree's
+   roots, drawn faintly behind a single rune-tablet card. */
+
+:root {
+    --bg: #10141b;
+    --bg-alt: #161c26;
+    --card: #1b222f;
+    --ink: #e9e2d0;
+    --muted: #8b93a6;
+    --accent: #c98a3e;
+    --accent-soft: rgba(201, 138, 62, 0.35);
+    --moss: #6e8f6b;
+    --line: #333b4b;
+    --danger: #b3543f;
+
+    --font-display: "Cinzel", "Georgia", serif;
+    --font-body: "EB Garamond", "Iowan Old Style", Georgia, serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% -10%, var(--bg-alt), var(--bg) 60%);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.5;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Decorative roots — one deliberate background motif, quiet by default */
+.roots {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    color: var(--line);
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.roots svg {
+    width: 100%;
+    height: 100%;
+}
+
+.page {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 64px 24px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Hero */
+.hero {
+    text-align: left;
+}
+
+.hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.1rem, 5vw, 2.9rem);
+    letter-spacing: 0.01em;
+    margin: 0 0 10px;
+    color: var(--ink);
+}
+
+.hero .tagline {
+    margin: 0;
+    max-width: 46ch;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 1.15rem;
+}
+
+/* Card */
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 32px;
+    box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.6);
+}
+
+/* Form */
+.summon-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.summon-form label {
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.summon-form input {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    padding: 12px 14px;
+    transition: border-color 0.15s ease;
+}
+
+.summon-form input::placeholder {
+    color: #5b6272;
+}
+
+.summon-form input:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.summon-form input.input-error {
+    border-color: var(--danger);
+    animation: shake 0.4s ease;
+}
+
+.summon-form button {
+    margin-top: 6px;
+    background: var(--accent);
+    color: #201200;
+    border: none;
+    border-radius: 3px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 13px 18px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.summon-form button:hover {
+    background: #dc9c50;
+}
+
+.summon-form button:active {
+    transform: translateY(1px);
+}
+
+.summon-form button:focus-visible {
+    outline: 3px solid var(--accent-soft);
+    outline-offset: 2px;
+}
+
+/* Result */
+.result {
+    margin-top: 30px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+}
+
+.result[hidden] {
+    display: none;
+}
+
+.result.reveal {
+    animation: rise 0.45s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .result.reveal {
+        animation: none;
+    }
+}
+
+.result-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    margin: 0 0 4px;
+    color: var(--ink);
+}
+
+.result-header p {
+    margin: 0;
+    color: var(--accent);
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+}
+
+/* Ledger — a small stat sheet, dotted leaders like an old manuscript tally */
+.ledger {
+    margin: 22px 0 4px;
+}
+
+.ledger-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    padding: 6px 0;
+}
+
+.ledger-row dt {
+    order: 1;
+    color: var(--muted);
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.ledger-row::after {
+    content: "";
+    order: 2;
+    flex: 1 1 auto;
+    border-bottom: 1px dotted var(--line);
+    margin: 0 8px;
+    align-self: center;
+}
+
+.ledger-row dd {
+    order: 3;
+    margin: 0;
+    flex: 0 0 auto;
+    color: var(--ink);
+    font-weight: 600;
+}
+
+/* Attributes */
+.attributes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 22px 0;
+}
+
+.stat-row-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.92rem;
+    margin-bottom: 6px;
+}
+
+.stat-label {
+    color: var(--muted);
+}
+
+.stat-value {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.stat-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    overflow: hidden;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--moss), var(--accent));
+    border-radius: 3px;
+}
+
+/* Saga */
+.saga {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+}
+
+.saga p {
+    margin: 0;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Footer */
+.credit {
+    text-align: left;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.credit a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.credit a:hover {
+    border-bottom-color: var(--accent);
+}
+
+/* Animations */
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .page {
+        padding: 40px 18px 36px;
+        gap: 24px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+}
