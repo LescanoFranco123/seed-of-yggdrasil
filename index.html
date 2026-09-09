@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#10141b">
     <title>Seed of Yggdrasil — Character Generator</title>
     <meta name="description" content="Draw a random hero from the roots of the World Tree. A procedural Norse-inspired RPG character generator.">
 
@@ -17,15 +18,65 @@
 <body>
 
     <div class="roots" aria-hidden="true">
-        <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-            <path d="M600 -20 C 560 120, 640 160, 560 260 C 500 330, 380 320, 300 420 C 220 510, 240 620, 120 700"
-                  fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M600 -20 C 640 120, 560 160, 640 260 C 700 330, 820 320, 900 420 C 980 510, 960 620, 1080 700"
-                  fill="none" stroke="currentColor" stroke-width="2"/>
-            <path d="M600 -20 C 600 160, 600 200, 600 340 C 600 460, 540 520, 560 640 C 575 720, 520 760, 500 820"
-                  fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <path d="M600 -20 C 600 160, 600 200, 600 340 C 600 460, 660 520, 640 640 C 625 720, 680 760, 700 820"
-                  fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <svg viewBox="0 0 1200 1000" preserveAspectRatio="xMidYMid slice" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <path id="wolf" d="M -70,-20
+                         C -50,-27 -30,-27 -10,-26
+                         C 2,-26 8,-27 10,-27
+                         C 14,-33 20,-37 26,-40
+                         L 24,-52 L 36,-40
+                         C 44,-38 52,-34 58,-28
+                         L 70,-26
+                         L 58,-16
+                         C 50,-12 42,-11 34,-12
+                         C 26,-8 18,-4 8,-2
+                         C -8,2 -26,3 -42,4
+                         C -54,5 -62,2 -68,-4
+                         C -74,-10 -74,-15 -70,-20 Z
+                         M -66,-6 C -84,-8 -100,-18 -110,-34 C -98,-26 -84,-18 -70,-14 C -68,-11 -67,-8 -66,-6 Z
+                         M 22,-4 L 36,28 L 28,30 L 10,-2 Z
+                         M 2,-1 L 12,30 L 4,32 L -8,1 Z
+                         M -30,3 L -28,32 L -36,33 L -40,4 Z
+                         M -52,3 L -56,30 L -64,29 L -60,2 Z"/>
+            </defs>
+
+            <g fill="none" stroke="currentColor">
+                <g stroke-width="1.6">
+                    <path d="M600 850 C 560 900, 620 920, 540 960 C 480 990, 400 985, 320 1010"/>
+                    <path d="M600 850 C 640 900, 580 920, 660 960 C 720 990, 800 985, 880 1010"/>
+                    <path d="M600 850 C 600 900, 560 930, 520 970 C 490 1000, 460 1005, 420 1030"/>
+                    <path d="M600 850 C 600 900, 640 930, 680 970 C 710 1000, 740 1005, 780 1030"/>
+                    <path d="M600 850 C 600 910, 600 940, 600 990 C 600 1010, 600 1020, 600 1040"/>
+                </g>
+
+                <path stroke-width="3" d="M600 850 C 595 700, 605 560, 598 420 C 592 320, 604 220, 600 170"/>
+
+                <g stroke-width="1.6">
+                    <path d="M600 170 C 540 155, 500 130, 420 115 C 360 103, 300 108, 240 92"/>
+                    <path d="M600 170 C 660 155, 700 130, 780 115 C 840 103, 900 108, 960 92"/>
+                    <path d="M600 170 C 560 145, 540 120, 480 88 C 450 72, 430 60, 400 40"/>
+                    <path d="M600 170 C 640 145, 660 120, 720 88 C 750 72, 770 60, 800 40"/>
+                    <path d="M600 170 C 600 135, 600 110, 600 70 C 600 50, 600 40, 600 22"/>
+                    <path d="M600 170 C 570 150, 555 135, 520 120 C 495 110, 480 105, 460 100"/>
+                    <path d="M600 170 C 630 150, 645 135, 680 120 C 705 110, 720 105, 740 100"/>
+                </g>
+            </g>
+
+            <g transform="translate(220,110)" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle r="34"/>
+                <path d="M0 -50 L0 -64 M0 50 L0 64 M-50 0 L-64 0 M50 0 L64 0
+                         M-35 -35 L-45 -45 M35 -35 L45 -45 M-35 35 L-45 45 M35 35 L45 45"/>
+            </g>
+
+            <g transform="translate(980,110)" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M20 -36 A 36 36 0 1 0 20 36 A 27 27 0 1 1 20 -36 Z"/>
+            </g>
+
+            <!-- Sköll chasing Sól, the sun -->
+            <use xlink:href="#wolf" transform="translate(365,215) scale(-1,1) rotate(-20)" fill="currentColor"/>
+
+            <!-- Hati chasing Máni, the moon -->
+            <use xlink:href="#wolf" transform="translate(835,215) rotate(-20)" fill="currentColor"/>
         </svg>
     </div>
 
