@@ -12,6 +12,7 @@ A procedural, Norse-inspired RPG character generator. Enter a name and draw a ra
 - Rule-based pairing: every race only rolls classes that fit its lore (an Elf never comes out as a Barbarian), instead of pure randomness across the full list.
 - Six core attributes (Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma) rolled per character and visualized with proportional bars.
 - Randomized saga fragments for a bit of narrative flavor on every roll.
+- Original hand-drawn SVG background: a curling, knotwork-style World Tree with Sköll and Hati — the wolves of Norse myth — rendered as flowing, glowing silhouettes chasing the sun and moon across the sky.
 - Fully static front end — no build step, no backend, no dependencies.
 - Responsive layout, keyboard-accessible form, and a reduced-motion fallback for the reveal animation.
 
